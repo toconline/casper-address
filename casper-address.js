@@ -608,6 +608,7 @@ class CasperAddress extends CasperUiHelperMixin(LitElement) {
   }
 
   _onChangeCountry (event) {
+    if (!event.detail?.item?.iso_alpha_3) return;
     const isoAlpha = event.detail?.item?.iso_alpha_3;
     const alphaToCompare = 'PRT';
 
