@@ -1,11 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import '@polymer/paper-input/paper-input.js';
-import { CasperUiHelperMixin } from '@cloudware-casper/casper-edit-dialog/components/casper-ui-helper-mixin.js';
+import { CasperUiHelper } from '@cloudware-casper/casper-edit-dialog/components/casper-ui-helper.js';
 import '@cloudware-casper/casper-select-lit/casper-select-lit.js';
 import '@cloudware-casper/casper-select-lit/components/casper-highlightable.js';
 
 
-class CasperAddress extends CasperUiHelperMixin(LitElement) {
+class CasperAddress extends LitElement {
   static styles = [
     css`
       :host {
@@ -91,6 +91,8 @@ class CasperAddress extends CasperUiHelperMixin(LitElement) {
 
   constructor () {
     super();
+
+    this._uiHelper = new CasperUiHelper();
     this._socket = app.socket2;
     if (!this.addressesResource) {
       this.addressesResource = 'addresses';
@@ -320,79 +322,10 @@ class CasperAddress extends CasperUiHelperMixin(LitElement) {
     }
   }
 
-  /* Validates fields which have the "required" attribute. */
-  validateRequiredFields () {
-    let isValid = true;
-    const requiredFields = this.shadowRoot.querySelectorAll('[required]');
-
-    for (const element of requiredFields) {
-      if (!element.hasAttribute('has-keydown-listener')) {
-        element.addEventListener('keydown', (event) => this.clearFieldErrorMessage(event?.currentTarget));
-        element.setAttribute('has-keydown-listener', '');
-      }
-
-      const nodeName = element.nodeName.toLowerCase();
-      const message = 'Campo obrigatório.';
-
-      switch (nodeName) {
-        case 'casper-select-lit':
-          if (element.value === undefined) {
-            element.searchInput.invalid = true;
-            element.error = message;
-            isValid = false;
-          }
-          break;
-
-        case 'casper-select':
-          if (!element.value) {
-            if (element.multiSelection) {
-              const paperInputContainer = element.shadowRoot.querySelector('paper-input-container');
-              if (paperInputContainer) paperInputContainer.invalid = true;
-            } else {
-              element.searchInput.invalid = true;
-              element.searchInput.errorMessage = message;
-            }
-
-            isValid = false;
-          }
-          break;
-
-        case 'casper-date-picker':
-          if (!element.value) {
-            element.invalid = true;
-            element.requiredErrorMessage = message;
-            element.__errorMessage = message;
-            isValid = false;
-          }
-          break;
-
-        case 'paper-checkbox':
-          if (!element.checked) {
-            element.invalid = true;
-            isValid = false;
-          }
-          break;
-
-        case 'paper-input':
-          if ((!element.value && element.value !== 0) || element.value?.toString()?.trim() === '') {
-            element.invalid = true;
-            element.errorMessage = message;
-            isValid = false;
-          }
-          break;
-
-        default:
-          break;
-      }
-    }
-
-    return isValid;
-  }
-
   validate () {
     let isValid = true;
 
-    const requiredValidations = this.validateRequiredFields();
+    const requiredValidations = this._uiHelper.validateRequiredFields(this.shadowRoot);
     const otherValidations = this._validate();
 
     if (!requiredValidations || !otherValidations) isValid = false;
@@ -400,55 +333,6 @@ class CasperAddress extends CasperUiHelperMixin(LitElement) {
     return isValid;
   }
 
-  /* Event listener which is fired when the user interacts with an invalid field. This will clear the error message. */
-  clearFieldErrorMessage (element) {
-    if (!element) return;
-    const nodeName = element.nodeName.toLowerCase();
-
-    switch (nodeName) {
-      case 'casper-select-lit':
-        if (element.searchInput?.invalid) {
-          element.searchInput.invalid = false;
-          element.error = '';
-        }
-        break;
-
-      case 'casper-select':
-        if (element.multiSelection) {
-          const paperInputContainer = element.shadowRoot.querySelector('paper-input-container');
-          if (paperInputContainer?.invalid) paperInputContainer.invalid = false;
-        } else {
-          if (element.searchInput?.invalid) {
-            element.searchInput.invalid = false;
-            element.searchInput.errorMessage = '';
-          }
-        }
-        break;
-
-      case 'casper-date-picker':
-        if (element.invalid) {
-          element.invalid = false;
-          element.__errorMessage = '';
-        }
-        break;
-
-      case 'paper-checkbox':
-        if (element.invalid) {
-          element.invalid = false;
-        }
-        break;
-
-      case 'paper-input':
-        if (element.invalid) {
-          element.invalid = false;
-          element.errorMessage = '';
-        }
-        break;
-
-      default:
-        break;
-    }
-  }
 
   //***************************************************************************************//
   //                              ~~~ Private methods  ~~~                                 //
@@ -657,7 +541,7 @@ class CasperAddress extends CasperUiHelperMixin(LitElement) {
 
     if (event.key === 'Tab') {
       const children = Array.from(this.shadowRoot.children);
-      const reachedLast = this.fieldTabHandler(event, children);
+      const reachedLast = this._uiHelper.fieldTabHandler(event, children);
 
       if (reachedLast) {
         // Necessary for CasperEditDialog and other components, so that the next field is focused when the user presses tab
