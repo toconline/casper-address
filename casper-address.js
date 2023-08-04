@@ -541,11 +541,11 @@ class CasperAddress extends LitElement {
 
     if (event.key === 'Tab') {
       const children = Array.from(this.shadowRoot.children);
-      const reachedLast = this._uiHelper.fieldTabHandler(event, children);
-
-      if (reachedLast) {
-        // Necessary for CasperEditDialog and other components, so that the next field is focused when the user presses tab
-        this.dispatchEvent(new CustomEvent('reached-last-focusable-field', { bubbles: true, composed: true, cancelable: true, detail: { focusable_element: this } }));
+      const reachedExtreme = this._uiHelper.fieldTabHandler(event, children);
+      
+      if (reachedExtreme) {
+        // Necessary for CasperEditDialog and other components, so that the previous / next field is focused when the user presses shift+tab / tab
+        this.dispatchEvent(new CustomEvent('reached-extreme-focusable-field', { bubbles: true, composed: true, cancelable: true, detail: { focusable_element: this, position: event.shiftKey ? 'first' : 'last' } }));
       }
     }
   }
