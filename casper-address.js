@@ -45,9 +45,8 @@ class CasperAddress extends LitElement {
       }
 
       #address-search {
-        position: relative;
         width: 100%;
-        left: 0;
+        margin-left: 0;
       }
 
       #address-name {
@@ -58,7 +57,7 @@ class CasperAddress extends LitElement {
       #address-search:hover,
       #address-search:focus {
         width: calc(200% + var(--ca-grid-gap));
-        left: calc(-100% - var(--ca-grid-gap));
+        margin-left: calc(-100% - var(--ca-grid-gap));
       }
 
       #address-search:hover + #address-name,
