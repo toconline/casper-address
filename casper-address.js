@@ -206,6 +206,7 @@ class CasperAddress extends LitElement {
           .hidden="${this.mode == 'basic' ? true : false}"
           .socket="${this._socket}"
           .renderLine="${this._renderLineAddress}"
+          .renderPlaceholder="${this._renderAddressPlaceholder}"
           .fitInto="${this.fitInto}"
           idColumn="id"
           textProp="street_name"
@@ -394,6 +395,49 @@ class CasperAddress extends LitElement {
         <casper-highlightable highlight="${search}" class="address">
           ${item.cp} ${item.locality_name} - ${item.district_name}
         </casper-highlightable>
+      </div>
+    `;
+  }
+
+
+
+  _renderAddressPlaceholder () {
+    const randomAddresses = [
+      {line1: 'Rua dos Embondeiros Bairro do Pinhal', line2: '7500-180 Vila Nova de Santo André - Setúbal'},
+      {line1: 'Rua do Pinhal', line2: '6500-180 Vila Nova - Porto'},
+      {line1: 'Rua da Testes Novos', line2: '2230-670 Lisboa - Nova'},
+      {line1: 'Travessa das Liberdades', line2: '5530-540 Sintra - Castro'},
+      {line1: 'Rotunda das Nossas Vontades', line2: '4434-820 Viseu - Santo'},
+    ]
+    const itemLine1 = randomAddresses[Math.floor(Math.random()*randomAddresses.length)].line1;
+    const itemLine2 = randomAddresses[Math.floor(Math.random()*randomAddresses.length)].line2;
+    return html`
+    <style>
+        .line-container {
+          display: flex;
+          flex-direction: column;
+          gap: 0.357em;
+          padding: 0.7em 0;
+          border-bottom: 1px solid #ddd;
+          filter: blur(4px);
+        }
+        .line-container .wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.357em;
+        }
+        .line-container .address {
+          font-size: calc(var(--cvs-font-size) - 1px);
+          font-weight: 300;
+        }
+        .margins {
+          margin-left: 12px;
+        }
+      </style>
+      <div class="line-container">
+        <div class="wrapper margins">${itemLine1}</div>
+        <div class="address margins">${itemLine2}</div>
       </div>
     `;
   }
