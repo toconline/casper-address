@@ -10,7 +10,7 @@ class CasperAddress extends LitElement {
     css`
       :host {
         --column-gap: 1.25rem;
-        --item-min-width: 14.4rem;
+        --ca-item-min-width: 14.4rem;
 
         width: 100%;
         display: flex;
@@ -20,7 +20,7 @@ class CasperAddress extends LitElement {
       }
 
       *:not(#address-name, #address-search) {
-        min-width: min(var(--item-min-width), 100%);
+        min-width: min(var(--ca-item-min-width), 100%);
         width: calc((100% - 2 * var(--column-gap)) / 3);
         flex-grow: 1;
       }
