@@ -9,55 +9,40 @@ class CasperAddress extends LitElement {
   static styles = [
     css`
       :host {
-        --ca-grid-gap: 1rem;
-        display: grid;
+        --column-gap: 1.25rem;
+        --item-min-width: 14.4rem;
+
         width: 100%;
-        grid-template-columns: repeat(6, 1fr);
-        grid-gap: var(--ca-grid-gap);
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 0.625rem;
+        column-gap: var(--column-gap);
       }
 
-      :host(.postal-code) {
-        grid-template-columns: repeat(4, 1fr);
+      *:not(#address-name, #address-search) {
+        min-width: min(var(--item-min-width), 100%);
+        width: calc((100% - 2 * var(--column-gap)) / 3);
+        flex-grow: 1;
       }
 
-      :host(.postal-code-country) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      :host(.postal-code-country) #address-country {
-        grid-column: span 4;
-      }
-
-      * {
-        grid-column: span 2;
+      #address-name,
+      #address-search {
+        width: calc((100% - var(--column-gap)) / 2);
+        flex-grow: 1;
+        transition: all 0.5s ease-in-out;
       }
 
       #address-name {
+        margin-right: 0;
+        opacity: 1;
         /* Necessary for the transition */
         -webkit-order: -1;
         order: -1;
       }
 
-      #address-name,
-      #address-search {
-        grid-column: span 3;
-        transition: all 0.5s ease-in-out;
-      }
-
-      #address-search {
-        width: 100%;
-        margin-left: 0;
-      }
-
-      #address-name {
-        width: 100%;
-        opacity: 1;
-      }
-
       #address-search:hover,
       #address-search:focus {
-        width: calc(200% + var(--ca-grid-gap));
-        margin-left: calc(-100% - var(--ca-grid-gap));
+        width: 100%;
       }
 
       #address-search:hover + #address-name,
@@ -65,10 +50,11 @@ class CasperAddress extends LitElement {
         width: 0;
         opacity: 0;
         pointer-events: none;
+        margin-right: calc(var(--column-gap) * -1);
       }
 
       #address-detail {
-        grid-column: 1 / -1;
+        width: 100%;
       }
     `
   ];
