@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import '@polymer/paper-input/paper-input.js';
-import { CasperUiHelper } from '@cloudware-casper/casper-edit-dialog/components/casper-ui-helper.js';
-import '@cloudware-casper/casper-select-lit/casper-select-lit.js';
-import '@cloudware-casper/casper-select-lit/components/casper-highlightable.js';
+import { CasperUiHelper } from '@toconline/casper-edit-dialog/components/casper-ui-helper.js';
+import '@toconline/casper-select-lit/casper-select-lit.js';
+import '@toconline/casper-select-lit/components/casper-highlightable.js';
 
 
 class CasperAddress extends LitElement {
