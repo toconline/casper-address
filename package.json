@@ -1,5 +1,5 @@
 {
-  "name": "@cloudware-casper/casper-address",
+  "name": "@toconline/casper-address",
   "main": "casper-address.js",
   "version": "1.0.12",
   "description": "Simple interface to create and edit casper addresses",
@@ -7,8 +7,8 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
-    "@cloudware-casper/casper-edit-dialog": "^1.x",
-    "@cloudware-casper/casper-select-lit": "^0.x",
+    "@toconline/casper-edit-dialog": "^1.x",
+    "@toconline/casper-select-lit": "^0.x",
     "lit": "^2.x"
   }
 }

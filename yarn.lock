@@ -2,49 +2,6 @@
 # yarn lockfile v1
 
 
-"@cloudware-casper/casper-edit-dialog@^1.x":
-  version "1.0.12"
-  resolved "https://npm.pkg.github.com/download/@cloudware-casper/casper-edit-dialog/1.0.12/0415c5b2d86c3ea92703e2f99f376972a6d142a3#0415c5b2d86c3ea92703e2f99f376972a6d142a3"
-  integrity sha512-xSQtLWWm9TXXWLQxtopQXjcCgtWusEtHFx6EKULtSji5vBs5ElODd7SEbyGHok5j6IR6aorq+F3MLS5QsHoe4w==
-  dependencies:
-    "@cloudware-casper/casper-timed-status" "^0.x"
-    lit "^2.x"
-
-"@cloudware-casper/casper-icons@^3.x":
-  version "3.2.7"
-  resolved "https://npm.pkg.github.com/download/@cloudware-casper/casper-icons/3.2.7/16145caf17fe1ab9fb020eab0b34bb0d80518ac4#16145caf17fe1ab9fb020eab0b34bb0d80518ac4"
-  integrity sha512-E+6/LJc4PbgFd47mIFN72Gih3or4Zn+wvJhbe8WT1eOZ0DrdSRq5FVsjC9zRBnPZJji5k9d2d8s1Ow+49UGgvA==
-  dependencies:
-    ink-ripple alex-saunders/ink-ripple
-    lit "^2.x"
-
-"@cloudware-casper/casper-select-lit@^0.x":
-  version "0.1.6"
-  resolved "https://npm.pkg.github.com/download/@cloudware-casper/casper-select-lit/0.1.6/37d814b3d988e3fa0830ceec64f727ed4eca48f8#37d814b3d988e3fa0830ceec64f727ed4eca48f8"
-  integrity sha512-YvLkxQIlY94JaEpVmPx/1chw2MpY7JzPOUCX8NkJvPAVcJqOJCz6sBR/+LKWLTUTV9b0+CPsyoSvdqdC0KocCw==
-  dependencies:
-    "@cloudware-casper/casper-icons" "^3.x"
-    "@cloudware-casper/casper-virtual-scroller" "^0.x"
-    "@polymer/paper-input" "^3.x"
-    "@popperjs/core" "^2.x"
-    lit "^2.x"
-    popper-max-size-modifier "^0.2.0"
-
-"@cloudware-casper/casper-timed-status@^0.x":
-  version "0.0.14"
-  resolved "https://npm.pkg.github.com/download/@cloudware-casper/casper-timed-status/0.0.14/0c9ced21661334e394e0b4ea0009bb125989f4ec#0c9ced21661334e394e0b4ea0009bb125989f4ec"
-  integrity sha512-r5zfNjZoOg0NydZVVvFI4ig5CO+OvSGiG56wT+0bUNbxdmiMAZIEBjD1dZhdxPkEufLH1K3IOCpCbv5gsEuVYg==
-  dependencies:
-    "@cloudware-casper/casper-icons" "^3.x"
-
-"@cloudware-casper/casper-virtual-scroller@^0.x":
-  version "0.0.16"
-  resolved "https://npm.pkg.github.com/download/@cloudware-casper/casper-virtual-scroller/0.0.16/5c865d541bf46ad61a10d033cd152c06cc96dce6#5c865d541bf46ad61a10d033cd152c06cc96dce6"
-  integrity sha512-9Aam8ra9hukwJenrH8T7U3vS6rvAkarCxakgm8GyTP9U3AS3KgSjsnZTT/ghiDoB9wUAQXSyqz1ag0b2yXLKAg==
-  dependencies:
-    lit "^2.x"
-    wc-spinners "^1.1.1"
-
 "@lit-labs/ssr-dom-shim@^1.0.0", "@lit-labs/ssr-dom-shim@^1.1.0":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.1.1.tgz#64df34e2f12e68e78ac57e571d25ec07fa460ca9"
@@ -166,6 +123,58 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
   integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
 
+"@toconline/casper-edit-dialog@^1.x":
+  version "1.3.35"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-edit-dialog/1.3.35/237e66f3fbd98492b1b931c5b914340031d1259d#237e66f3fbd98492b1b931c5b914340031d1259d"
+  integrity sha512-25gTvyTYBTi6qiAIna12B05vBA03Z88tAfFkBlzB+qeGqKi8wTtrqIZk6dZGB7jC2ESjKzWTzROQivLXRTuJpQ==
+  dependencies:
+    "@toconline/casper-timed-status" "^0.x"
+    "@toconline/casper-tooltip" "^1.x"
+    lit "^2.x"
+
+"@toconline/casper-icons@^3.x":
+  version "3.2.6"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-icons/3.2.6/157a96d60ac922bbc38294b02c1de2b7617e4f36#157a96d60ac922bbc38294b02c1de2b7617e4f36"
+  integrity sha512-zl1H4WLCQP7poxEi5Uq1ZAY1EmbGUlAh0QoTloZ7f8ErVKg66/Q70GkgRuL7jnCySa7TWwOxj2wtHktuouksUw==
+  dependencies:
+    ink-ripple alex-saunders/ink-ripple
+    lit "^2.x"
+
+"@toconline/casper-select-lit@^0.x":
+  version "0.4.2"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-select-lit/0.4.2/3aea681aa46fc9da53cc968d10a9b1ec17f2104c#3aea681aa46fc9da53cc968d10a9b1ec17f2104c"
+  integrity sha512-BkNfa9/NPeONV4TWcd/Uijpg3FRiHk9UJQHNRwhuGsBJARJwAgXKZ55WtnFj6FOa+vvFzKQDX/glxs+EPWGSBA==
+  dependencies:
+    "@polymer/paper-input" "^3.x"
+    "@popperjs/core" "^2.x"
+    "@toconline/casper-icons" "^3.x"
+    "@toconline/casper-virtual-scroller" "^0.x"
+    lit "^2.x"
+    popper-max-size-modifier "^0.2.0"
+
+"@toconline/casper-timed-status@^0.x":
+  version "0.0.15"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-timed-status/0.0.15/adeae9151b49d32f856c0143db053f189d7c7d4c#adeae9151b49d32f856c0143db053f189d7c7d4c"
+  integrity sha512-1tMN8un0eVrJkrUgVUs4Vuhw9tA5R2YSQkC4CldJV16xG0LAnipSbpHYbra5ln2VQEhMltg5Nti/lYQn4iiDsg==
+  dependencies:
+    "@toconline/casper-icons" "^3.x"
+
+"@toconline/casper-tooltip@^1.x":
+  version "1.6.1"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-tooltip/1.6.1/5e54d325b1f751239389cacdaea66fb1942000aa#5e54d325b1f751239389cacdaea66fb1942000aa"
+  integrity sha512-BDE0BPX7V5BcdvurVCFuinOEatX8VNiLV0JJIuzL8S93g19K9IoltlwrgvWlNjYCRst4Zv8J4SsZrQ9F7+tnTw==
+  dependencies:
+    dompurify "^2.x"
+    lit "^2.x"
+
+"@toconline/casper-virtual-scroller@^0.x":
+  version "0.2.0"
+  resolved "https://npm.pkg.github.com/download/@toconline/casper-virtual-scroller/0.2.0/37d16e4b11eb5dc9787da09e5230867b1ad7c755#37d16e4b11eb5dc9787da09e5230867b1ad7c755"
+  integrity sha512-NrD6KNec9r/p08D/gfU8nlp+lDk4qjuxftCsQAwp3EkihODdjUajYSlyvnEa0Cp4H+ZB4edXp8dwykDPSrRVNw==
+  dependencies:
+    lit "^2.x"
+    wc-spinners "^1.1.1"
+
 "@types/trusted-types@^2.0.2":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.3.tgz#a136f83b0758698df454e328759dbd3d44555311"
@@ -176,7 +185,12 @@
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.11.2.tgz#7539b0ad29598aa2eafee8b341059e20ac9e1006"
   integrity sha512-vRq+GniJAYSBmTRnhCYPAPq6THYqovJ/gzGThWbgEZUQaBccndGTi1hdiUP15HzEco0I6t4RCtXyX0rsSmwgPw==
 
-ink-ripple@alex-saunders/ink-ripple:
+dompurify@^2.x:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.5.8.tgz#2809d89d7e528dc7a071dea440d7376df676f824"
+  integrity sha512-o1vSNgrmYMQObbSSvF/1brBYEQPHhV1+gsmrusO7/GXtp1T9rCS8cXFqVxK/9crT1jA6Ccv+5MTSjBNqr7Sovw==
+
+"ink-ripple@github:alex-saunders/ink-ripple":
   version "0.0.0"
   resolved "https://codeload.github.com/alex-saunders/ink-ripple/tar.gz/88e4d753bba9f7b57b372c62a4517bb091c7f713"
 
